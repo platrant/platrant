@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private Transform[] groundedPoints;
 
-	void Start () {
+	void Start ()
+    {
         rgBody = GetComponent<Rigidbody2D>();
 	}
 	
-	void FixedUpdate () {
+	void FixedUpdate ()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         Debug.Log(horizontal);
 
@@ -24,18 +26,14 @@ public class PlayerMovement : MonoBehaviour {
     {
         rgBody.velocity = new Vector2(horizontal * movementSpeed, rgBody.velocity.y);
 
-        if(Input.GetButtonDown("Jump") && rgBody.velocity.y == 0)
+        shouldJump(horizontal);
+    }
+
+    private void shouldJump(float horizontal)
+    {
+        if (Input.GetButtonDown("Jump") && rgBody.velocity.y == 0)
         {
             rgBody.velocity = new Vector2(horizontal * movementSpeed, 3);
         }
     }
-/*
-    private bool isGrounded()
-    {
-        if(rgBody.velocity.y <= 0)
-        {
-
-        }
-    }
-    */
 }
