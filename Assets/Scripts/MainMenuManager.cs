@@ -10,19 +10,12 @@ public class MainMenuManager : MonoBehaviour {
     {
         menuPos = 0;
     }
-	void Update () {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 
     public void Exit()
     {
         Application.Quit();
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
     void OnGUI()
     {
         GUIText platRant = new GUIText();
