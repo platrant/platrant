@@ -13,7 +13,6 @@ public class MainMenuManager : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.Label(new Rect(0, 15, 100, 40), "platRant");
         for(int k = 0; k < menuItems.Length; k++)
         {
             if (GUI.Button(new Rect(0,(200 + (k * 32)), 128, 32), menuItems[k]))
