@@ -30,6 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool ShouldJump()
     {
-        return Input.GetButtonDown("Jump") && rgBody.velocity.y == 0;
+        return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
 }
