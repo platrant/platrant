@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float movementSpeed;
     [SerializeField]
+    private float jumpSpeed;
+    [SerializeField]
     private Transform[] groundedPoints;
 
     private int score;
@@ -17,15 +19,32 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        MovementHandler(horizontal);
+        float horizontalDirection = GetHorizontalDirection();
+        HandleHorizontalMovement(horizontalDirection);
+        HandleJump(horizontalDirection);
     }
 
-    private void MovementHandler(float horizontal)
+    private float GetHorizontalDirection()
     {
-        rgBody.velocity = new Vector2(horizontal * movementSpeed, rgBody.velocity.y);
+        return Input.GetAxis("Horizontal") != 0 ? Input.GetAxis("Horizontal") : GetVimKeysIfPressed();
+    }
+
+    private float GetVimKeysIfPressed()
+    {
+        if(Input.GetKey("h"))
+            return -1;
+        return Input.GetKey("l") ? 1 : 0;
+    }
+
+    private void HandleHorizontalMovement(float horizontalDirection)
+    {
+        rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, rgBody.velocity.y);
+    }
+
+    private void HandleJump(float horizontalDirection)
+    {
         if(ShouldJump()){
-            rgBody.velocity = new Vector2(horizontal * movementSpeed, 3);
+            rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, jumpSpeed);
         };
     }
 
