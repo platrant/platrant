@@ -53,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
         return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Coin")
+        if (coll.gameObject.tag.Equals("Coin"))
         {
             score++;
             Destroy(coll.gameObject);
