@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private float movementSpeed;
     [SerializeField]
     private Transform[] groundedPoints;
+
+    private int score;
 
     void Start()
     {
@@ -32,4 +33,15 @@ public class PlayerMovement : MonoBehaviour
     {
         return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Coin")
+        {
+            score++;
+            Destroy(coll.gameObject);
+            Debug.Log("New Score: " + score);
+        }
+    }
+
 }
