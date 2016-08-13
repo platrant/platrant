@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour {
 
     private string[] menuItems = {"Start", "Exit"};
-    private int menuPos;
-	void Start()
-    {
-        menuPos = 0;
-    }
 
     public void Exit()
     {
@@ -18,7 +13,6 @@ public class MainMenuManager : MonoBehaviour {
 
     void OnGUI()
     {
-        GUIText platRant = new GUIText();
         GUI.Label(new Rect(0, 15, 100, 40), "platRant");
         for(int k = 0; k < menuItems.Length; k++)
         {
