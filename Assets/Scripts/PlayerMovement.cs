@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         {
             score++;
             Destroy(coll.gameObject);
-            Debug.Log("New Score: " + score);
+            GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
         }
     }
 
