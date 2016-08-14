@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
         return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
 
-<<<<<<< HEAD:Assets/Scripts/PlayerMovement.cs
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Coin"))
@@ -89,6 +88,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-=======
->>>>>>> refs/remotes/origin/master:Assets/Scripts/PlayerController.cs
 }
