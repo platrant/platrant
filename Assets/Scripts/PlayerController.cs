@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rgBody;
     [SerializeField]
@@ -9,12 +9,19 @@ public class PlayerMovement : MonoBehaviour
     private float jumpSpeed;
     [SerializeField]
     private Transform[] groundedPoints;
+    [SerializeField]
+    private float rotationIntensity = 20;
 
     private Vector2 originalPosition;
-    
+    private Quaternion originalRotation;
+    private int score;
+
+    private bool rotating;
+
     void Start()
     {
         originalPosition = transform.position;
+        originalRotation = transform.rotation;
         rgBody = GetComponent<Rigidbody2D>();
     }
 
@@ -23,12 +30,23 @@ public class PlayerMovement : MonoBehaviour
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
+        if(rotating)
+        {
+            transform.Rotate(Vector3.forward * rotationIntensity);
+        }
     }
 
 
     public void ResetPosition()
     {
         transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        rotating = false;
+    }
+
+    public void Rotate()
+    {
+        rotating = true;
     }
 
     private float GetHorizontalDirection()

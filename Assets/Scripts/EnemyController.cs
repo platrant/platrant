@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     private int moveDirection = 1;
+
+    [SerializeField]
+    private PlayerHealthHandler playerHealthHandler;
 
     void FixedUpdate()
     {
@@ -18,7 +21,7 @@ public class EnemyMovement : MonoBehaviour {
         }
         else if (coll.gameObject.CompareTag("Player"))
         {
-            coll.gameObject.SendMessage("LoseLife");
+            playerHealthHandler.LoseLife();
         }
     }
 }

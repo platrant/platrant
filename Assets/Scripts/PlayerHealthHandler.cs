@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour {
+public class PlayerHealthHandler : MonoBehaviour {
 
     private const string LIVES_GAME_OBJ_NAME = "Remaining Lives";
 
@@ -8,13 +8,13 @@ public class PlayerHealthManager : MonoBehaviour {
     private int remainingLives = 3;
 
     [SerializeField]
-    private LevelManager levelManager;
+    private LevelHandler levelHandler;
 
-    private GameObject objPlayer;
+    [SerializeField]
+    private PlayerController player;
 
     public void Start()
     {
-        objPlayer = GameObject.FindGameObjectWithTag("Player");
         UpdateLivesComponent();
     }
 
@@ -28,11 +28,11 @@ public class PlayerHealthManager : MonoBehaviour {
     {
         remainingLives--;
         if (!IsAlive())
-            levelManager.GameOver();
+            levelHandler.GameOver();
         else
         {
             UpdateLivesComponent();
-            objPlayer.SendMessage("ResetPosition");
+            player.SendMessage("ResetPosition");
         }
     }
     

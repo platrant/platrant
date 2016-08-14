@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraScript : MonoBehaviour
+public class MainCamera : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    private PlayerController player;
+
     private Vector3 offset;
 
     void Start()

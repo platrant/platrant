@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelHandler : MonoBehaviour {
 
     private const string GAME_OVER_SCENE = "Game_Over";
 
@@ -22,11 +22,6 @@ public class LevelManager : MonoBehaviour {
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void RequestQuit()
-    {
-        Application.Quit();
     }
 
     public void GameOver()

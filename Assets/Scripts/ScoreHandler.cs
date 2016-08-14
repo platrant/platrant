@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreHandler : MonoBehaviour
 {
-    private int score = 0;
+    private int score;
 
     public void UpdateScore(int scoreValueAmount)
     {
