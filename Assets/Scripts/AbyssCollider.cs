@@ -4,6 +4,8 @@ using System.Collections;
 public class AbyssCollider : MonoBehaviour {
 
     private const string LIVES_GAME_OBJ_NAME = "Remaining Lives";
+    private const string PLAYER_TAG = "Player";
+
     [SerializeField]
     private PlayerHealthManager playerHealthManager;
     [SerializeField]
@@ -13,20 +15,23 @@ public class AbyssCollider : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        GameObject gObj = coll.gameObject;
-        if (gObj == player.gameObject)
-        {
-            playerHealthManager.LoseLife();
-            if(playerHealthManager.IsAlive()){
-                player.Reset();
-                UpdateLivesComponent(playerHealthManager.RemainingLives);
-            }
+        if (coll.gameObject.tag == PLAYER_TAG)
+            KillPlayer();
+    }
+
+    private void KillPlayer()
+    {
+        playerHealthManager.LoseLife();
+        if(playerHealthManager.IsAlive()){
+            player.ResetPosition();
+            UpdateLivesComponent();
         }
     }
 
-    private void UpdateLivesComponent(int remainingLives)
+    private void UpdateLivesComponent()
     {
-        char fontAwesomeHealthSymbol = '';
+        int remainingLives = playerHealthManager.RemainingLives;
+        char fontAwesomeHealthSymbol = ''; //A heart symbol in the font-awesome font family
         UpdateRemainingLivesText(new string(fontAwesomeHealthSymbol, remainingLives));
     }
 
@@ -35,6 +40,7 @@ public class AbyssCollider : MonoBehaviour {
         GameObject.Find(LIVES_GAME_OBJ_NAME).GetComponent<UnityEngine.UI.Text>().text = newText;
     }
 
-	void Start () {}
-	void Update () {}
+	void Start () {
+        UpdateLivesComponent();
+    }
 }

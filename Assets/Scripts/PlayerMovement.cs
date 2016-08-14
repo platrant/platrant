@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void Reset()
+    public void ResetPosition()
     {
         transform.position = originalPosition;
     }

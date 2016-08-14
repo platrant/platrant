@@ -655,7 +655,7 @@ Prefab:
     - target: {fileID: 114000012016860572, guid: 8578d80758025423a981c0a1f24a589b,
         type: 2}
       propertyPath: remainingLives
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8578d80758025423a981c0a1f24a589b, type: 2}

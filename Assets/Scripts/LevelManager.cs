@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    private const string GAME_OVER_SCENE = "Game_Over";
+
     [SerializeField]
     private bool shouldAutoload;
     [SerializeField]
@@ -29,6 +31,6 @@ public class LevelManager : MonoBehaviour {
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Game_Over");
+        SceneManager.LoadScene(SceneName.GAME_OVER.ToString());
     }
 }

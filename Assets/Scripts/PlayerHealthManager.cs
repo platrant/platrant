@@ -18,27 +18,12 @@ public class PlayerHealthManager : MonoBehaviour {
     public void LoseLife()
     {
         remainingLives--;
-        CheckIfAlive();
-    }
-
-    public int GetRemainingLives()
-    {
-        return remainingLives;
+        if(!IsAlive())
+            levelManager.GameOver();
     }
 
     public bool IsAlive()
     {
-        return remainingLives >= 0;
+        return remainingLives > 0;
     }
-
-    private void CheckIfAlive()
-    {
-        if(remainingLives <= 0)
-        {
-            levelManager.GameOver();
-        }
-    }
-
-	void Start() {}
-	void Update() {}
 }
