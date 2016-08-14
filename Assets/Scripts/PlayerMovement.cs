@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag.Equals("Coin"))
+        if (coll.gameObject.CompareTag("Coin"))
         {
             score++;
             Destroy(coll.gameObject);
