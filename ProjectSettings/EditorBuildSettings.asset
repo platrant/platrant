@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash_01.unity
   - enabled: 1
     path: Assets/Scenes/Level_01.unity
+  - enabled: 1
+    path: Assets/Scenes/Game_Over.unity

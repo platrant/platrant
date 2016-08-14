@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - EnemyWayPoint
+  - Player Health Manager
   layers:
   - Default
   - TransparentFX

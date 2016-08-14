@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform[] groundedPoints;
 
+    private Vector2 originalPosition;
     private int score;
 
     void Start()
     {
+        originalPosition = transform.position;
         rgBody = GetComponent<Rigidbody2D>();
     }
 
@@ -22,6 +24,12 @@ public class PlayerMovement : MonoBehaviour
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
+    }
+
+
+    public void ResetPosition()
+    {
+        transform.position = originalPosition;
     }
 
     private float GetHorizontalDirection()
