@@ -11,8 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform[] groundedPoints;
 
     private Vector2 originalPosition;
-    private int score;
-
+    
     void Start()
     {
         originalPosition = transform.position;
