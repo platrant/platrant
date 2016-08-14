@@ -19,6 +19,12 @@ public class AbyssCollider : MonoBehaviour {
             KillPlayer();
     }
 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == PLAYER_TAG)
+            player.RotatePlayer();
+    }
+
     private void KillPlayer()
     {
         playerHealthManager.LoseLife();

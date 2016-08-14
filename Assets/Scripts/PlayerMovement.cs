@@ -11,11 +11,15 @@ public class PlayerMovement : MonoBehaviour
     private Transform[] groundedPoints;
 
     private Vector2 originalPosition;
+    private Quaternion originalRotation;
     private int score;
+
+    private bool rotating;
 
     void Start()
     {
         originalPosition = transform.position;
+        originalRotation = transform.rotation;
         rgBody = GetComponent<Rigidbody2D>();
     }
 
@@ -24,12 +28,23 @@ public class PlayerMovement : MonoBehaviour
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
+        if(rotating)
+        {
+            transform.Rotate(Vector3.forward * 30);
+        }
     }
 
 
     public void ResetPosition()
     {
         transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        rotating = false;
+    }
+
+    public void RotatePlayer()
+    {
+        rotating = true;
     }
 
     private float GetHorizontalDirection()
