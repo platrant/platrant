@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MusicPlayer : MonoBehaviour {
+public class MusicHandler : MonoBehaviour {
 
     //Singleton to ensure restarting the scene doesn't cause a new music player.
-    static MusicPlayer instance = null;
+    static MusicHandler instance = null;
 
     //Doing singleton management in Awake rather than start to ensure
     //that a second music player won't be heard for a split second when
@@ -18,7 +18,4 @@ public class MusicPlayer : MonoBehaviour {
             GameObject.DontDestroyOnLoad(gameObject);
         }
     }
-	
-    void Start () {}
-	void Update () {}
 }

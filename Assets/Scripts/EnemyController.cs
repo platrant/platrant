@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     private int moveDirection = 1;
-    private int rotation = 180;
+
+    [SerializeField]
+    private PlayerHealthHandler playerHealthHandler;
 
     void FixedUpdate()
     {
@@ -16,6 +18,10 @@ public class EnemyMovement : MonoBehaviour {
         {
             moveDirection = -moveDirection;
             gameObject.transform.Rotate(0, 180, 0);
+        }
+        else if (coll.gameObject.CompareTag("Player"))
+        {
+            playerHealthHandler.LoseLife();
         }
     }
 }

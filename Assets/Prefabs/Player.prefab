@@ -9,73 +9,91 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000010757879678}
+  m_RootGameObject: {fileID: 1000012475248450}
   m_IsPrefabParent: 1
---- !u!1 &1000010757879678
+--- !u!1 &1000012475248450
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011115431564}
-  - 212: {fileID: 212000011540750654}
-  - 58: {fileID: 58000011620473944}
-  - 114: {fileID: 114000010025589430}
-  m_Layer: 0
-  m_Name: ++ coin
-  m_TagString: Coin
+  - 4: {fileID: 4000012397652232}
+  - 212: {fileID: 212000014268632972}
+  - 50: {fileID: 50000013765294340}
+  - 114: {fileID: 114000012338435108}
+  - 61: {fileID: 61000010902234712}
+  m_Layer: 8
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011115431564
+--- !u!4 &4000012397652232
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010757879678}
+  m_GameObject: {fileID: 1000012475248450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.257041, y: -1.3105186, z: 0}
-  m_LocalScale: {x: 0.10967941, y: 0.11186874, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!58 &58000011620473944
-CircleCollider2D:
+--- !u!50 &50000013765294340
+Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010757879678}
+  m_GameObject: {fileID: 1000012475248450}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &61000010902234712
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012475248450}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.2299998
---- !u!114 &114000010025589430
+  m_Size: {x: 1.42, y: 2.28}
+--- !u!114 &114000012338435108
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010757879678}
+  m_GameObject: {fileID: 1000012475248450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b4f44491342964bbf8b7b3b14a442f, type: 3}
+  m_Script: {fileID: 11500000, guid: 56bdbc04b5db25d45b92d5720f7b3fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 1
-  scoreHandler: {fileID: 114000012519376544, guid: bc7e063043df04df4912edf1b45f4f3e,
-    type: 2}
---- !u!212 &212000011540750654
+  movementSpeed: 5
+  jumpSpeed: 7
+  groundedPoints: []
+--- !u!212 &212000014268632972
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010757879678}
+  m_GameObject: {fileID: 1000012475248450}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -99,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a73d859550364e4cb4a3d46e52b7568, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4cf3bdade88754c00937dfb7bcac3e44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
