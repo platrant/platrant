@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000011115431564}
   - 212: {fileID: 212000011540750654}
   - 58: {fileID: 58000011620473944}
+  - 114: {fileID: 114000010025589430}
   m_Layer: 0
   m_Name: ++ coin
   m_TagString: Coin
@@ -55,6 +56,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.2299998
+--- !u!114 &114000010025589430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010757879678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b4f44491342964bbf8b7b3b14a442f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinValue: 1
+  scoreHandler: {fileID: 114000012519376544, guid: bc7e063043df04df4912edf1b45f4f3e,
+    type: 2}
 --- !u!212 &212000011540750654
 SpriteRenderer:
   m_ObjectHideFlags: 1
