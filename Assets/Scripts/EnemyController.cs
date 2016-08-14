@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyController : MonoBehaviour {
 
     private int moveDirection = 1;
 
     [SerializeField]
-    private PlayerHealthManager playerHealthHandler;
+    private PlayerHealthHandler playerHealthHandler;
 
     void FixedUpdate()
     {

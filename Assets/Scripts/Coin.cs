@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class CoinHandler : MonoBehaviour {
+public class Coin : MonoBehaviour {
 
     [SerializeField]
     private int coinValue;
     [SerializeField]
-    private ScoreManager scoreHandler;
+    private ScoreHandler scoreHandler;
     
-    private void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))
         {

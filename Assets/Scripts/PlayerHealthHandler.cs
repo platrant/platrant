@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour {
+public class PlayerHealthHandler : MonoBehaviour {
 
     private const string LIVES_GAME_OBJ_NAME = "Remaining Lives";
 
@@ -8,10 +8,10 @@ public class PlayerHealthManager : MonoBehaviour {
     private int remainingLives = 3;
 
     [SerializeField]
-    private LevelManager levelManager;
+    private LevelHandler levelHandler;
 
     [SerializeField]
-    private PlayerMovement player;
+    private PlayerController player;
 
     public void Start()
     {
@@ -28,7 +28,7 @@ public class PlayerHealthManager : MonoBehaviour {
     {
         remainingLives--;
         if (!IsAlive())
-            levelManager.GameOver();
+            levelHandler.GameOver();
         else
         {
             UpdateLivesComponent();

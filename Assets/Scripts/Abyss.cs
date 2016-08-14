@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AbyssCollider : MonoBehaviour {
+public class Abyss : MonoBehaviour {
 
     private const string PLAYER_TAG = "Player";
 
     [SerializeField]
-    private PlayerHealthManager playerHealthHandler;
+    private PlayerHealthHandler playerHealthHandler;
     
 
     void OnTriggerEnter2D(Collider2D coll)
