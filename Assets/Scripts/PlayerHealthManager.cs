@@ -10,8 +10,11 @@ public class PlayerHealthManager : MonoBehaviour {
     [SerializeField]
     private LevelManager levelManager;
 
+    private GameObject objPlayer;
+
     public void Start()
     {
+        objPlayer = GameObject.FindGameObjectWithTag("Player");
         UpdateLivesComponent();
     }
 
@@ -29,7 +32,7 @@ public class PlayerHealthManager : MonoBehaviour {
         else
         {
             UpdateLivesComponent();
-            GameObject.FindGameObjectWithTag("Player").SendMessage("ResetPosition");
+            objPlayer.SendMessage("ResetPosition");
         }
     }
     
