@@ -7,7 +7,9 @@ public class AbyssCollider : MonoBehaviour {
     
     void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == PLAYER_TAG)
-            coll.gameObject.SendMessage("LoseLife");
+        GameObject gameObjHit = coll.gameObject;
+
+        if (gameObjHit.tag == PLAYER_TAG)
+            gameObjHit.SendMessage("LoseLife");
     }
 }
