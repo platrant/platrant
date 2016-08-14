@@ -61,14 +61,4 @@ public class PlayerMovement : MonoBehaviour
         return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Coin")
-        {
-            score++;
-            Destroy(coll.gameObject);
-            GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
-        }
-    }
-
 }
