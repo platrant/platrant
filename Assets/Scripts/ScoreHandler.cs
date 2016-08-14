@@ -9,9 +9,4 @@ public class ScoreHandler : MonoBehaviour
         score += scoreValueAmount;
         GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
     }
-
-    void Start()
-    {
-        score = 0; 
-    }
 }
