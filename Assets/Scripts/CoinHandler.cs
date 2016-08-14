@@ -4,9 +4,11 @@ public class CoinHandler : MonoBehaviour {
     
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.CompareTag("Player"))
+        GameObject gameObjHit = coll.gameObject;
+
+        if (gameObjHit.CompareTag("Player"))
         {
-            coll.gameObject.SendMessage("UpdateScore");
+            gameObjHit.SendMessage("UpdateScore");
             Destroy(gameObject);
         }
     }
