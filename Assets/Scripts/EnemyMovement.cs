@@ -3,7 +3,6 @@
 public class EnemyMovement : MonoBehaviour {
 
     private int moveDirection = 1;
-    private int rotation = 180;
 
     void FixedUpdate()
     {

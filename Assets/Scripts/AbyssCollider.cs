@@ -3,35 +3,38 @@ using System.Collections;
 
 public class AbyssCollider : MonoBehaviour {
 
-    public const string PLAYER_TAG = "Player";
-    
+    private const string LIVES_GAME_OBJ_NAME = "Remaining Lives";
     [SerializeField]
-    private PlayerHealthManager healthManager;
-
+    private PlayerHealthManager playerHealthManager;
     [SerializeField]
     private LevelManager levelManager;
+    [SerializeField]
+    private PlayerMovement player;
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == PLAYER_TAG)
+        GameObject gObj = coll.gameObject;
+        if (gObj == player.gameObject)
         {
-            healthManager.LoseLife();
-            Destroy(coll.gameObject);
-            UpdateLivesComponent(healthManager.GetRemainingLives());
+            playerHealthManager.LoseLife();
+            if(playerHealthManager.IsAlive()){
+                player.Reset();
+                UpdateLivesComponent(playerHealthManager.RemainingLives);
+            }
         }
     }
 
     private void UpdateLivesComponent(int remainingLives)
     {
-        char fontAwesomeHealthSymbol = '-';//'\uf004;';
+        char fontAwesomeHealthSymbol = '';
         UpdateRemainingLivesText(new string(fontAwesomeHealthSymbol, remainingLives));
     }
 
     private void UpdateRemainingLivesText(string newText)
     {
-        GameObject.Find("Remaining Lives").GetComponent<UnityEngine.UI.Text>().text = newText;
+        GameObject.Find(LIVES_GAME_OBJ_NAME).GetComponent<UnityEngine.UI.Text>().text = newText;
     }
 
-	void Start () { }
-	void Update () { }
+	void Start () {}
+	void Update () {}
 }

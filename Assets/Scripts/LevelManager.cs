@@ -1,22 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public float autoLoadNextLevelAfter;
+    [SerializeField]
+    private bool shouldAutoload;
+    [SerializeField]
+    private float autoloadNextLevelAfter;
 
     void Start()
     {
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        if(shouldAutoload)
+        {
+            Invoke("LoadNextLevel", autoloadNextLevelAfter);
+        }
     }
 
     public void LoadNextLevel()
     {
-        Application.LoadLevel(Application.loadedLevel + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void RequestQuit()
     {
         Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("Game_Over");
     }
 }
