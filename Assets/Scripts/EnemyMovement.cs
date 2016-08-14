@@ -16,5 +16,9 @@ public class EnemyMovement : MonoBehaviour {
             moveDirection = -moveDirection;
             gameObject.transform.Rotate(0, 180, 0);
         }
+        else if (coll.gameObject.CompareTag("Player"))
+        {
+            coll.gameObject.SendMessage("LoseLife");
+        }
     }
 }
