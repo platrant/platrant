@@ -658,8 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a40fc0a9cda4aac8749bd9a90a85de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 1225905850}
-  player: {fileID: 2011675296}
 --- !u!4 &905693290 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011115431564, guid: 453dcfe034f4bc64b85803539d5a1196,
@@ -994,6 +992,11 @@ Prefab:
     - target: {fileID: 1000010757879678, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
       propertyPath: m_Name
       value: ++ coin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010025589430, guid: 453dcfe034f4bc64b85803539d5a1196,
+        type: 2}
+      propertyPath: coinValue
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}

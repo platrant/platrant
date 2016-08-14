@@ -4,9 +4,9 @@ public class ScoreManager : MonoBehaviour
 {
     private int score = 0;
 
-    public void UpdateScore()
+    public void UpdateScore(int scoreValueAmount)
     {
-        score++;
+        score += scoreValueAmount;
         GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
     }
 }

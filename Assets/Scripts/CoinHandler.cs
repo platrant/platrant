@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
 public class CoinHandler : MonoBehaviour {
+
+    [SerializeField]
+    private int coinValue;
     
     private void OnCollisionEnter2D(Collision2D coll)
     {
@@ -8,7 +11,7 @@ public class CoinHandler : MonoBehaviour {
 
         if (gameObjHit.CompareTag("Player"))
         {
-            gameObjHit.SendMessage("UpdateScore");
+            gameObjHit.SendMessage("UpdateScore", coinValue);
             Destroy(gameObject);
         }
     }
