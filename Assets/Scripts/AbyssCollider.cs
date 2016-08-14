@@ -40,7 +40,7 @@ public class AbyssCollider : MonoBehaviour {
         GameObject.Find(LIVES_GAME_OBJ_NAME).GetComponent<UnityEngine.UI.Text>().text = newText;
     }
 
-	void Start () {
+    void Start () {
         UpdateLivesComponent();
     }
 }
