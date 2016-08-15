@@ -14,12 +14,12 @@ public class EnemyController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.transform.CompareTag("EnemyWayPoint"))
+        if (coll.gameObject.CompareTag(TagName.EnemyWayPoint))
         {
             moveDirection = -moveDirection;
             gameObject.transform.Rotate(0, 180, 0);
         }
-        else if (coll.gameObject.CompareTag("Player"))
+        else if (coll.gameObject.CompareTag(TagName.Player))
         {
             playerHealthHandler.LoseLife();
         }
