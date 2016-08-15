@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class Abyss : MonoBehaviour {
-
-    private const string PLAYER_TAG = "Player";
-
+    
     [SerializeField]
     private PlayerHealthHandler playerHealthHandler;
     
@@ -16,7 +14,7 @@ public class Abyss : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == PLAYER_TAG)
+        if (coll.gameObject.CompareTag(TagName.Player))
            playerHealthHandler.LoseLife();
     }
 }
