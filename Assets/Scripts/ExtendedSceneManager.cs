@@ -9,6 +9,6 @@ public static class ExtendedSceneManager
 
     public static void LoadNextScene()
     {
-        SceneManager.GetActiveScene().LoadNextScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
