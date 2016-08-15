@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LevelHandler : MonoBehaviour {
-
-    private const string GAME_OVER_SCENE = "Game_Over";
-
+    
     [SerializeField]
     private bool shouldAutoload;
     [SerializeField]

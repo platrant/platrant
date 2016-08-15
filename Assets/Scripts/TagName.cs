@@ -1,8 +1,7 @@
 ﻿public enum TagName
 {
-    Default,
+    Untagged,
     Player,
-    Enemy,
-    Waypoints,
-    Platform
+    Coin,
+    EnemyWayPoint
 }
