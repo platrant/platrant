@@ -21,11 +21,11 @@ public class LevelHandler : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.GetActiveScene().LoadNextScene();
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene(SceneName.GAME_OVER.ToString());
+        ExtendedSceneManager.LoadScene(SceneName.GAME_OVER);
     }
 }
