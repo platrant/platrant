@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LevelHandler : MonoBehaviour {
-
-    private const string GAME_OVER_SCENE = "Game_Over";
-
+    
     [SerializeField]
     private bool shouldAutoload;
     [SerializeField]
@@ -21,11 +18,11 @@ public class LevelHandler : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ExtendedSceneManager.LoadNextScene();
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene(SceneName.GAME_OVER.ToString());
+        ExtendedSceneManager.LoadScene(SceneName.GAME_OVER);
     }
 }
