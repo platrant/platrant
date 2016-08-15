@@ -18,7 +18,7 @@ public class LevelHandler : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        SceneManager.GetActiveScene().LoadNextScene();
+        ExtendedSceneManager.LoadNextScene();
     }
 
     public void GameOver()

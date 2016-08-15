@@ -6,4 +6,9 @@ public static class ExtendedSceneManager
     {
         SceneManager.LoadScene(sceneName.ToString());
     }
+
+    public static void LoadNextScene()
+    {
+        SceneManager.GetActiveScene().LoadNextScene();
+    }
 }
