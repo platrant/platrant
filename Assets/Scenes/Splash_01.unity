@@ -122,8 +122,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076294, y: 65.09999}
-  m_SizeDelta: {x: 479.3, y: 130.2}
+  m_AnchoredPosition: {x: -0.0000080347, y: 46}
+  m_SizeDelta: {x: 800, y: 215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66362817
 MonoBehaviour:
@@ -160,7 +160,9 @@ MonoBehaviour:
   m_Text: 'platRant
 
 
-    a devRant indie game'
+    an indie platformer
+
+    by the devRant community'
 --- !u!222 &66362818
 CanvasRenderer:
   m_ObjectHideFlags: 0
