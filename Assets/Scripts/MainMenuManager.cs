@@ -14,6 +14,7 @@ public class MainMenuManager : MonoBehaviour {
         selectedIndex = 0;
         menuCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         buttonArray = menuCanvas.GetComponentsInChildren<Button>();
+        buttonArray[1].gameObject.SetActive(false);
         buttonArray[selectedIndex].Select();
     }
 
