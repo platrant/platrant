@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - EnemyWayPoint
   - Player Health Manager
+  - MenuButton
+  - MenuCanvas
   layers:
   - Default
   - TransparentFX

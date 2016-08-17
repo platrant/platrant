@@ -78,4 +78,14 @@ public class PlayerController : MonoBehaviour
         return Input.GetButton("Jump") && rgBody.velocity.y == 0;
     }
 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag(TagName.Coin))
+        {
+            score++;
+            Destroy(coll.gameObject);
+            GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
+        }
+    }
+
 }
