@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Coin"))
+        if (coll.gameObject.CompareTag(TagName.Coin))
         {
             score++;
             Destroy(coll.gameObject);

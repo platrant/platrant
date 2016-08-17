@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour {
 
-    private string[] menuItems = {"Start", "Exit"};
+    private string[] menuItems = {"Start", "About"};
     private int selectedIndex;
     GameObject[] buttons;
     Button[] buttonArray;
