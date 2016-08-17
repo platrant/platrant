@@ -19,9 +19,9 @@ public class MainMenuManager : MonoBehaviour {
         buttonArray[selectedIndex].Select();
     }
 
-    public void Exit()
+    public void About()
     {
-        Application.Quit();
+        //TODO
     }
 
     void Update()
@@ -76,6 +76,6 @@ public class MainMenuManager : MonoBehaviour {
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Level_01");
+        ExtendedSceneManager.LoadScene(SceneName.LEVEL_01);
     }
 }
