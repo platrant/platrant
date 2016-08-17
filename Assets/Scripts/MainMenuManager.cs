@@ -31,20 +31,21 @@ public class MainMenuManager : MonoBehaviour {
 
         if (Input.GetKeyDown("down"))
         {
-            selectedIndex = menuSelection(menuItems, selectedIndex, "down");
+            selectedIndex = menuSelection(selectedIndex, "down");
             buttonArray[selectedIndex].Select();
         }
 
         else if (Input.GetKeyDown("up"))
         {
-            selectedIndex = menuSelection(menuItems, selectedIndex, "up");
+            selectedIndex = menuSelection(selectedIndex, "up");
             buttonArray[selectedIndex].Select();
         }
     }
 
 
-    private int menuSelection(string[] menuItems, int selectedItem, string direction)
+    private int menuSelection(int selectedItem, string direction)
     {
+        string[] menuItems = { "New Game", "About" };
         if (direction == "up")
         {
             if (selectedItem == 0)
