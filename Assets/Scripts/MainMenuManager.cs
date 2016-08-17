@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour {
@@ -14,13 +12,7 @@ public class MainMenuManager : MonoBehaviour {
         selectedIndex = 0;
         menuCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         buttonArray = menuCanvas.GetComponentsInChildren<Button>();
-        buttonArray[1].gameObject.SetActive(false);
         buttonArray[selectedIndex].Select();
-    }
-
-    public void About()
-    {
-        //TODO
     }
 
     void Update()
@@ -35,7 +27,6 @@ public class MainMenuManager : MonoBehaviour {
             selectedIndex = menuSelection(selectedIndex, "down");
             buttonArray[selectedIndex].Select();
         }
-
         else if (Input.GetKeyDown("up"))
         {
             selectedIndex = menuSelection(selectedIndex, "up");
@@ -77,5 +68,10 @@ public class MainMenuManager : MonoBehaviour {
     public void NewGame()
     {
         ExtendedSceneManager.LoadScene(SceneName.LEVEL_01);
+    }
+
+    public void About()
+    {
+        ExtendedSceneManager.LoadScene(SceneName.About);
     }
 }
