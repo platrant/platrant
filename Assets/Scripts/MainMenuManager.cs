@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour {
 
     private string[] menuItems = {"Start", "Exit"};
     private int selectedIndex;
+    GameObject[] buttons;
+    Button[] buttonArray;
+    Canvas menuCanvas;
 
     void Start()
     {
         selectedIndex = 0;
+        menuCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        buttonArray = menuCanvas.GetComponentsInChildren<Button>();
+        buttonArray[selectedIndex].Select();
     }
 
     public void Exit()
@@ -19,35 +26,24 @@ public class MainMenuManager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButton("up"))
+        if(Input.GetKey("enter") || Input.GetKey("return"))
+        {
+            buttonArray[selectedIndex].onClick.Invoke();
+        }
+
+        if (Input.GetKeyDown("down"))
         {
             selectedIndex = menuSelection(menuItems, selectedIndex, "down");
+            buttonArray[selectedIndex].Select();
         }
 
-        if (Input.GetButton("up"))
+        else if (Input.GetKeyDown("up"))
         {
             selectedIndex = menuSelection(menuItems, selectedIndex, "up");
+            buttonArray[selectedIndex].Select();
         }
     }
 
-    void OnGUI()
-    {
-        for(int k = 0; k < menuItems.Length; k++)
-        {
-            if (GUI.Button(new Rect(30,(200 + (k * 32)), 128, 32), menuItems[k]))
-            {
-                if(k.Equals(0))
-                {
-                    SceneManager.LoadScene("Level_01");
-                }
-                else if(k.Equals(1))
-                {
-                    Exit();
-                }
-            }
-        }
-        GUI.FocusControl(menuItems[selectedIndex]);
-    }
 
     private int menuSelection(string[] menuItems, int selectedItem, string direction)
     {
@@ -76,5 +72,10 @@ public class MainMenuManager : MonoBehaviour {
         }
 
         return selectedItem;
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Level_01");
     }
 }
