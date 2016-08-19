@@ -18,6 +18,15 @@ public class PlayerController : MonoBehaviour
 
     private bool rotating;
 
+    bool grounded = false;
+    [SerializeField]
+    Transform rightLeg;
+    [SerializeField]
+    Transform leftLeg;
+    float groundRadius = 0.5f;
+    [SerializeField]
+    public LayerMask whatIsGround;
+
     void Start()
     {
         originalPosition = transform.position;
@@ -27,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        grounded = IsGrounded(leftLeg) || IsGrounded(rightLeg);
+
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
@@ -54,6 +66,12 @@ public class PlayerController : MonoBehaviour
         return Input.GetAxis("Horizontal") != 0 ? Input.GetAxis("Horizontal") : GetVimKeysIfPressed();
     }
 
+    private bool IsGrounded(Transform foot)
+    {
+        return Physics2D.OverlapCircle(foot.position, groundRadius, whatIsGround);
+    }
+
+
     private float GetVimKeysIfPressed()
     {
         if(Input.GetKey("h"))
@@ -66,16 +84,28 @@ public class PlayerController : MonoBehaviour
         rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, rgBody.velocity.y);
     }
 
+    private bool IsFootGrounded(Vector3 pos, Vector3 foot)
+    {
+        Debug.DrawRay(pos - foot, Vector2.down * 0.2f);
+        return Physics2D.Raycast(pos - foot, Vector2.down, 0.2f);
+    }
+
+    private Collider2D GetCollider()
+    {
+        Collider2D collider = GetComponent<Collider2D>();
+        return collider;
+    }
+
     private void HandleJump(float horizontalDirection)
     {
         if(ShouldJump()){
-            rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, jumpSpeed);
+            rgBody.AddForce(new Vector2(horizontalDirection * movementSpeed, jumpSpeed), ForceMode2D.Impulse);
         };
     }
 
     private bool ShouldJump()
     {
-        return Input.GetButton("Jump") && rgBody.velocity.y == 0;
+        return Input.GetButton("Jump") && grounded;
     }
 
     void OnTriggerEnter2D(Collider2D coll)
