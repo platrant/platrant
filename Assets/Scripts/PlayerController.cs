@@ -21,11 +21,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 originalPosition;
     private Quaternion originalRotation;
     private int score;
-
     private bool rotating;
     private float groundRadius = 0.5f;
     private bool grounded = false;
-
 
     void Start()
     {
@@ -36,9 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
         grounded = IsGrounded(leftLeg) || IsGrounded(rightLeg);
-
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
@@ -82,18 +78,6 @@ public class PlayerController : MonoBehaviour
     private void HandleHorizontalMovement(float horizontalDirection)
     {
         rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, rgBody.velocity.y);
-    }
-
-    private bool IsFootGrounded(Vector3 pos, Vector3 foot)
-    {
-        Debug.DrawRay(pos - foot, Vector2.down * 0.2f);
-        return Physics2D.Raycast(pos - foot, Vector2.down, 0.2f);
-    }
-
-    private Collider2D GetCollider()
-    {
-        Collider2D collider = GetComponent<Collider2D>();
-        return collider;
     }
 
     private void HandleJump(float horizontalDirection)
