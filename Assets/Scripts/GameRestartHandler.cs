@@ -7,7 +7,7 @@ public class GameRestartHandler : MonoBehaviour
     private float time = 0;
     void Start()
     {
-        time = 5;
+        timeBeforeRestart = 5;
     }
 
     void Update()
