@@ -4,5 +4,6 @@ public enum SceneName
     SPLASH_SCREEN,
     LEVEL_01,
     Game_Over_Success,
-    About
+    About,
+    Main_Menu
 }
