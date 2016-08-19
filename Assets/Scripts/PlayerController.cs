@@ -11,21 +11,21 @@ public class PlayerController : MonoBehaviour
     private Transform[] groundedPoints;
     [SerializeField]
     private float rotationIntensity = 20;
+    [SerializeField]
+    private Transform rightLeg;
+    [SerializeField]
+    private Transform leftLeg;
+    [SerializeField]
+    private LayerMask whatIsGround;
 
     private Vector2 originalPosition;
     private Quaternion originalRotation;
     private int score;
 
     private bool rotating;
+    private float groundRadius = 0.5f;
+    private bool grounded = false;
 
-    bool grounded = false;
-    [SerializeField]
-    Transform rightLeg;
-    [SerializeField]
-    Transform leftLeg;
-    float groundRadius = 0.5f;
-    [SerializeField]
-    public LayerMask whatIsGround;
 
     void Start()
     {
