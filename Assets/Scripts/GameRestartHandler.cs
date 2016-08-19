@@ -4,7 +4,7 @@ using System.Collections;
 public class GameRestartHandler : MonoBehaviour
 {
 
-    private float time = 0;
+    private float timeBeforeRestart = 0;
     void Start()
     {
         timeBeforeRestart = 5;
@@ -12,9 +12,9 @@ public class GameRestartHandler : MonoBehaviour
 
     void Update()
     {
-        if (time > 0)
+        if (timeBeforeRestart > 0)
         {
-            time -= Time.deltaTime;
+            timeBeforeRestart -= Time.deltaTime;
         }
         else
         {
