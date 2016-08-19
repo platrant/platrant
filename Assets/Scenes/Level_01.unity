@@ -882,7 +882,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 68.8128
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -964,12 +964,12 @@ Prefab:
     - target: {fileID: 114000010999576802, guid: 2ecc85f8669ea4817a6aa7a5265e3496,
         type: 2}
       propertyPath: movementSpeed
-      value: 30
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 212000011574427300, guid: 2ecc85f8669ea4817a6aa7a5265e3496,
         type: 2}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50000011020318394, guid: 2ecc85f8669ea4817a6aa7a5265e3496, type: 2}
@@ -1047,7 +1047,12 @@ Prefab:
     - target: {fileID: 114000012338435108, guid: 2adccf3f0352e42758ec3a5d9ae82ba1,
         type: 2}
       propertyPath: jumpSpeed
-      value: 60
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 50000013765294340, guid: 2adccf3f0352e42758ec3a5d9ae82ba1,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2adccf3f0352e42758ec3a5d9ae82ba1, type: 2}
