@@ -6,7 +6,7 @@ public class AboutSceneHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("escape"))
+        if (Input.anyKey)
         {
             ExtendedSceneManager.LoadScene(SceneName.Main_Menu);
         }
