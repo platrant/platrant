@@ -1738,21 +1738,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011115431564, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.99999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011115431564, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.99999994
-      objectReference: {fileID: 0}
     - target: {fileID: 1000010757879678, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
       propertyPath: m_Name
       value: ++ coin (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010757879678, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 453dcfe034f4bc64b85803539d5a1196, type: 2}
