@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010133656088}
   - 114: {fileID: 114000012519376544}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: ScoreHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

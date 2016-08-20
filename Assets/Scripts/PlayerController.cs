@@ -11,12 +11,19 @@ public class PlayerController : MonoBehaviour
     private Transform[] groundedPoints;
     [SerializeField]
     private float rotationIntensity = 20;
+    [SerializeField]
+    private Transform rightLeg;
+    [SerializeField]
+    private Transform leftLeg;
+    [SerializeField]
+    private LayerMask whatIsGround;
 
     private Vector2 originalPosition;
     private Quaternion originalRotation;
     private int score;
-
     private bool rotating;
+    private float groundRadius = 0.5f;
+    private bool grounded = false;
     private bool flipped = false;
 
     void Start()
@@ -28,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        grounded = IsGrounded(leftLeg) || IsGrounded(rightLeg);
         float horizontalDirection = GetHorizontalDirection();
         HandleHorizontalMovement(horizontalDirection);
         HandleJump(horizontalDirection);
@@ -54,6 +62,12 @@ public class PlayerController : MonoBehaviour
     {
         return Input.GetAxis("Horizontal") != 0 ? Input.GetAxis("Horizontal") : GetVimKeysIfPressed();
     }
+
+    private bool IsGrounded(Transform foot)
+    {
+        return Physics2D.OverlapCircle(foot.position, groundRadius, whatIsGround);
+    }
+
 
     private float GetVimKeysIfPressed()
     {
@@ -86,13 +100,13 @@ public class PlayerController : MonoBehaviour
     private void HandleJump(float horizontalDirection)
     {
         if(ShouldJump()){
-            rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, jumpSpeed);
+            rgBody.AddForce(new Vector2(horizontalDirection * movementSpeed, jumpSpeed), ForceMode2D.Impulse);
         };
     }
 
     private bool ShouldJump()
     {
-        return Input.GetButton("Jump") && rgBody.velocity.y == 0;
+        return Input.GetButton("Jump") && grounded;
     }
 
     void OnTriggerEnter2D(Collider2D coll)

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010633257292}
   - 114: {fileID: 114000010321383774}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97076741a58d4d56874bff60e3d3847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoLoadNextLevelAfter: 2
+  shouldAutoload: 0
+  autoloadNextLevelAfter: 0

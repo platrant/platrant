@@ -2,21 +2,22 @@
 
 public class EnemyController : MonoBehaviour {
 
-    private int moveDirection = 1;
+    [SerializeField]
+    private int movementVelocity = 1;
 
     [SerializeField]
     private PlayerHealthHandler playerHealthHandler;
 
     void FixedUpdate()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(moveDirection, 0);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(movementVelocity, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag(TagName.EnemyWayPoint))
         {
-            moveDirection = -moveDirection;
+            movementVelocity= -movementVelocity;
             gameObject.transform.Rotate(0, 180, 0);
         }
         else if (coll.gameObject.CompareTag(TagName.Player))
