@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private int score;
 
     private bool rotating;
+    private bool flipped = false;
 
     void Start()
     {
@@ -63,7 +64,23 @@ public class PlayerController : MonoBehaviour
 
     private void HandleHorizontalMovement(float horizontalDirection)
     {
+        HandleFlipping(horizontalDirection);
         rgBody.velocity = new Vector2(horizontalDirection * movementSpeed, rgBody.velocity.y);
+    }
+
+    private void HandleFlipping(float horizontalDirection)
+    {
+        if(horizontalDirection != 0)
+        {
+            bool facingRight = horizontalDirection >= 0;
+            if(facingRight != flipped)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = !facingRight;
+                flipped = facingRight;
+            }
+        }
+
+
     }
 
     private void HandleJump(float horizontalDirection)
