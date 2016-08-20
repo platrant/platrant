@@ -923,16 +923,6 @@ Prefab:
       propertyPath: playerHealthHandler
       value: 
       objectReference: {fileID: 245838557}
-    - target: {fileID: 114000010999576802, guid: 2ecc85f8669ea4817a6aa7a5265e3496,
-        type: 2}
-      propertyPath: movementVelocity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 212000011574427300, guid: 2ecc85f8669ea4817a6aa7a5265e3496,
-        type: 2}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ecc85f8669ea4817a6aa7a5265e3496, type: 2}
   m_IsPrefabParent: 0
